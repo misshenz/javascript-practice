@@ -33,5 +33,5 @@ function playGames(userChoice) {
     console.log(result);
     
     let resultText= document.getElementById("result");
-      resultText.textContent = result;                                      
+      resultText.textContent =  "Computer choose " + computer + ". " + result;                                      
 }
