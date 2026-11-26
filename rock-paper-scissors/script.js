@@ -1,29 +1,37 @@
+const choices = ["rock", "paper", "scissors"];
 
+function computerChoice() {
+    let randomIndex = Math.floor(Math.random() * 3);
+    return choices[randomIndex];
+}
 
-function playGame(userChoice) {
-
-    const choices = ["rock", "paper", "scissors"];
-
-    const computerChoice = choices[
-        Math.floor(Math.random() * choices.length)
-    ];
+function playGames(userChoice) {
 
     let result = "";
 
-    if (userChoice === computerChoice) {
-        result = "It's a draw!";
-    } 
-    else if (
-        (userChoice === "rock" && computerChoice === "scissors") ||
-        (userChoice === "paper" && computerChoice === "rock") ||
-        (userChoice === "scissors" && computerChoice === "paper")
-    ) {
-        result = "You win!";
-    } 
-    else {
-        result = "Computer wins!";
+    // Generate computer choice ONCE
+    let computer = computerChoice();
+
+    if (userChoice === computer) {
+        result = "It's a draw";
     }
 
-    document.getElementById("result").innerHTML =
-        `You chose ${userChoice}. Computer chose ${computerChoice}. ${result}`;
+    else if (
+        (userChoice === "paper" && computer === "rock") ||
+        (userChoice === "scissors" && computer === "paper") ||
+        (userChoice === "rock" && computer === "scissors")
+    ) {
+        result = "You win. Great Job";
+    }
+
+    else {
+        result = "You lose. Sorry";
+    }
+
+    console.log("You chose: " + userChoice);
+    console.log("Computer chose: " + computer);
+    console.log(result);
+    
+    let resultText= document.getElementById("result);
+      resultText.textContent = result;                                      
 }
